@@ -77,6 +77,9 @@ class Solarization(tf.keras.__internal__.layers.BaseImageAugmentationLayer):
         )
         return result
 
+    def augment_label(self, label, transformation=None):
+        return label
+
     def _solarize(self, images):
         return tf.where(images < self.threshold, images, 255 - images)
 

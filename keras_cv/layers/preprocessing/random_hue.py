@@ -55,6 +55,9 @@ class RandomHue(tf.keras.__internal__.layers.BaseImageAugmentationLayer):
         adjust_factor = transformation * 2.0 - 1.0
         return tf.image.adjust_hue(image, delta=adjust_factor)
 
+    def augment_label(self, label, transformation=None):
+        return label
+
     def get_config(self):
         config = {
             "factor": self.factor,
